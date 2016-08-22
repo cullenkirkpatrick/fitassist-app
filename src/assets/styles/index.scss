@@ -29,6 +29,8 @@ $white: #fff;
 
 $navbar-inverse-link-color: #5AADBB;
 $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
+*:focus {outline:none !important}
+
 
 /*----------------------------------------
   3. Global
@@ -41,31 +43,436 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
   padding: 0.2em 0;
 }
 
+html, body {
+  font-family: 'Titillium Web', sans-serif;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.fit-button-primary {
+  font-size: 24px; font-weight: bold;
+  border: 2px solid #2d9696;
+  border-radius: 3px;
+  background-color: #2d9696;
+  color: #ffffff;
+  padding: 5px 30px 5px 30px;
+}
+.fit-button-primary:hover {
+  background-color: #36b4b4;
+  border: 2px solid #36b4b4;
+}
+.fit-button-secondary {
+  font-size: 24px; font-weight: bold;
+  border: 2px solid #595959;
+  border-radius: 3px;
+  background-color: #595959;
+  color: #ffffff;
+  padding: 5px 30px 5px 30px;
+}
+.fit-button-secondary:hover {
+  background-color: #767676;
+  border: 2px solid #767676;
+}
+.fit-button-outline {
+
+}
+.fit-button-outline-rev {
+  border-radius: 3px;
+  border: 2px solid #ffffff;
+  font-size: 24px; font-weight: bold;
+  background-color: transparent;
+  color: #ffffff;
+  padding: 5px 30px 5px 30px;
+}
+.fit-button-outline-rev:hover {
+  text-decoration: underline;
+}
+.subtext {
+  font-size: 0.7em;
+  position: relative;
+  bottom: 0.25em;
+}
+.bold-text {
+  font-weight: bold;
+  color: #2d9696;
+}
+
+.nav-bar {
+  width: 100%;
+  .header {
+    width: 100%;
+    height: 70px;
+    background-color: #000000;
+    display: inline-block;
+    padding: 10px;
+    .logo {
+      float: left;
+      height: 100%;
+      font-family: 'Permanent Marker', serif;
+      font-size: 35px;
+      text-shadow: 1px 2px #2d9696;
+      color: #ffffff;
+      i {
+        margin: 0 10px 0 10px;
+      }
+    }
+    .user {
+      height: 100%;
+      float: right;
+      font-size: 35px;
+      color: #ffffff;
+      margin-right: 40px;
+      i {
+        margin-left: 40px;
+      }
+    }
+    .logout {
+      margin-left: 20px;
+      height: 100%;
+      float: right;
+    }
+  }
+}
+
+.horizontal-nav.ng-hide {
+  opacity: 0;
+  left: -250px;
+}
+.horizontal-nav {
+  transition: all linear 0.25s;
+  position: fixed;
+  top: 0; left: 0;
+  height: 100%;
+  width: 270px;
+  background-color: #f1f1f1;
+  .header {
+    width: 100%;
+    height: 70px;
+    padding: 10px;
+    .logo {
+      height: 100%;
+      font-family: 'Permanent Marker', serif;
+      font-size: 35px;
+      text-shadow: 1px 2px #2d9696;
+      color: #000000;
+      i {
+        margin: 0 10px 0 10px;
+      }
+    }
+  }
+  .nav-links {
+    width: 100%;
+    .link {
+      width: 100%;
+      height: 60px;
+      padding: 12px 0 0 20px;
+      font-size: 24px;
+      font-weight: bold;
+      i {
+        margin-right: 15px;
+      }
+    }
+    .link:hover {
+      text-decoration: underline;
+    }
+    .active {
+      background-color: #2d9696;
+      background: #2d9696;
+      color: #ffffff;
+      border-right: 5px solid #000000;
+    }
+    .active:hover {
+      text-decoration: none !important;
+    }
+  }
+}
+
+.modal-dialog {
+  margin: 0 auto;
+  width: 100%;
+  .section-header:first-child {
+    margin-top: 10px;
+  }
+  .section-header {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 30px;
+    margin-top: 30px;
+  }
+  .userinfo {
+    margin-top: 10px;
+    display: inline-block;
+    text-align: center;
+    input {
+      text-align: center;
+      margin: 0 auto;
+      max-width: 400px;
+    }
+  }
+  .paymentinfo {
+    margin-top: 10px;
+    text-align: center;
+    margin-bottom: 30px;
+    button {
+      width: 50%;
+      font-size: 16px;
+    }
+  }
+}
+
+
 /*----------------------------------------
-  4. Main
+  4. Login
 ----------------------------------------*/
 
-header {
-  color: $brand-540;
+.login-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
   height: 100%;
-  padding: 10px 0;
-  text-align: center;
-  h1 {
-    display: block;
-    font-size: 2.75em;
-    font-weight: 500;
+  background-image: url('/assets/images/login-bg.jpg');
+  background-size: cover;
+}
+
+.login-page {
+  width: 100%;
+  .header {
+    width: 100%;
+    height: 160px;
+    margin-top: 30px;
+    text-align: center;
+    font-family: 'Permanent Marker', serif;
+    text-shadow: 1px 2px #2d9696;
+    font-size: 100px;
+    color: #ffffff;
   }
-  #logo {
-    margin-bottom: 50px;
-    font-size: 15em;
+  .sign-in {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-top: 10px solid #2d9696;
+    font-size: 20px;
+    text-align: center;
+    .welcome {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      width: 100%;
+      font-family: 'Permanent Marker', serif;
+      font-size: 50px;
+    }
+    .login-input {
+      width: 60%;
+      margin-left: 20%;
+      margin-top: 20px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #000000;
+    }
+    .new-users {
+      margin-top: 20px;
+      width: 60%;
+      margin-left: 20%;
+      margin-bottom: 50px;
+      button {
+        width: 100%;
+        margin-top: 20px;
+      }
+      .account-help {
+        cursor: pointer;
+        font-size: 16px;
+      }
+    }
+  }
+  .info {
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 40px;
+    color: #ffffff;
+    .info-header {
+      width: 100%;
+      font-family: 'Permanent Marker', serif;
+      font-size: 40px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    button {
+      width: 250px;
+    }
+    .info-or {
+      font-size: 28px;
+      font-weight: bold;
+    }
   }
 }
 
-@media (min-width: 768px) {
-  header h1 {
-    font-size: 4.75em;
+/*----------------------------------------
+  5. Main
+----------------------------------------*/
+
+
+/*----------------------------------------
+  5. Pricing
+----------------------------------------*/
+
+.pricing-page {
+  .header {
+    width: 100%;
+    height: 160px;
+    margin-top: 30px;
+    text-align: center;
+    font-family: 'Permanent Marker', serif;
+    text-shadow: 1px 2px #2d9696;
+    font-size: 100px;
+    color: #ffffff;
+  }
+  .individual-pricing, .coach-pricing, .other-pricing {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-top: 10px solid #2d9696;
+    margin-bottom: 20px;
+    .type-header {
+      margin-top: 10px; margin-bottom: 20px;
+      font-size: 50px;
+      font-weight: bolder;
+      width: 80%;
+      margin-left: 10%;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #000000;
+      text-align: center;
+    }
+    .type-details {
+      width: 80%;
+      margin-left: 10%;
+      ul {
+        li {
+          a {
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            color: #595959;
+          }
+          a:hover {
+            background-color: #595959;
+            color: #ffffff;
+          }
+          .active {
+            background-color: #2d9696 !important;
+            color: #ffffff !important;
+          }
+        }
+      }
+      .type-content {
+        margin-top: 20px;
+        width: 100%;
+        padding-bottom: 20px;
+        .type-content-header {
+          width: 100%;
+          text-align: center;
+          font-size: 30px;
+          font-weight: bold;
+        }
+        .type-content-body {
+          width: 100%;
+          .silver {
+            background-color: #9a9a9a !important;
+          }
+          .gold {
+            background-color: #c5b358 !important;
+          }
+          .user-count {
+            width: 150px;
+            margin: 0 auto;
+            margin-top: 10px;
+            height: 150px;
+            background-color: #2d9696;
+            border-radius: 75px;
+            line-height: .9;
+            text-align: center;
+            color: #ffffff;
+            .icon {
+              padding-top: 45px;
+              font-size: 70px;
+              font-weight: 900;
+            }
+            .number {
+              padding-top: 40px;
+              font-size: 60px;
+              font-weight: 900;
+              margin-left: -5px;
+            }
+            .number-pro {
+              padding-top: 40px;
+              font-size: 60px;
+              font-weight: 900;
+            }
+            .number-unlimited {
+              padding-top: 55px;
+              font-size: 30px;
+              font-weight: 900;
+            }
+            .user-sub {
+              font-size: 16px;
+            }
+          }
+          .type-features {
+            margin-top: 20px;
+            font-size: 20px;
+          }
+          .type-price {
+            width: 100%;
+            margin-top: 20px;
+            .price {
+              width: 100%;
+              display: inline-block;
+              text-align: center;
+              font-size: 40px;
+              .subtext {
+                font-size: 0.7em;
+                position: relative;
+                bottom: 0.25em;
+              }
+              .month {
+                width: 45%;
+                float: left;
+                border-bottom: 1px solid #000000;
+              }
+              .year {
+                width: 45%;
+                margin-left: 10%;
+                float: left;
+                border-bottom: 1px solid #000000;
+              }
+              .permonth {
+                width: 45%;
+                float: left;
+                font-size: 20px;
+              }
+              .peryear {
+                width: 45%;
+                margin-left: 10%;
+                float: left;
+                font-size: 20px;
+              }
+            }
+          }
+          .type-signup {
+            width: 100%;
+            margin-top: 20px;
+            text-align: center;
+            margin-bottom: 10px;
+            button {
+              font-size: 16px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  .footer {
+    margin-top: 20px;
+    text-align: center;
+    padding-bottom: 40px;
   }
 }
+
 
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject

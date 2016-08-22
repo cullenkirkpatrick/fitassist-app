@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('fitassistApp', ['fitassistApp.core']);
+    .module('fitassistApp', ['fitassistApp.core', 'ngModal']);
 
 })();

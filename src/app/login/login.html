@@ -1,0 +1,30 @@
+<div class="login-bg"></div>
+
+<div class="login-page">
+  <div class="header col-md-12">
+    FitAssist
+  </div>
+  <div class="sign-in col-md-4 col-md-offset-2">
+    <div class='welcome'>Welcome!</div>
+    <span><span style="font-weight:bold;">Returning users</span> log in below.</span>
+    <div class="login-input">
+      <span style="font-size:16px;">Username or email</span></br>
+      <input type="text" name="name" value="" ng-model="vm.username"></br></br>
+      <span style="font-size:16px;">Password</span></br>
+      <input type="password" name="name" value="" ng-model="vm.password"></br></br>
+      <button type="button" class="fit-button-primary" name="button" ng-click="vm.loginUser()">Sign In</button>
+    </div>
+    <div class="new-users">
+      <span><span style="font-weight:bold;">New users</span> select your account type to get started.</span>
+      <button type="button" class="account-button fit-button-primary" name="button">Athlete</button>
+      <button type="button" class="account-button fit-button-secondary" name="button">Coach</button>
+      <a class="account-help">Which am I?</a>
+    </div>
+  </div>
+  <div class="info col-md-4">
+    <span class="info-header">Not Convinced?</span></br></br>
+    <div><a href="#/pricing"><button type="button" class="fit-button-primary" name="button">View Pricing</button></a></div></br>
+    <div><span class="info-or">Or {{vm.user}}</span></div></br>
+    <div><a href="#/info"><button type="button" class="fit-button-outline-rev" name="button">Learn More</button></a></div></br>
+  </div>
+</div>

@@ -2,9 +2,10 @@
 <html ng-app="fitassistApp">
   <head>
     <meta charset="utf-8">
-    <title>fitassistApp</title>
+    <title>FitAssist</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather|Permanent+Marker|Titillium+Web" rel="stylesheet">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
@@ -23,6 +24,34 @@
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+    <div class="nav-bar" ng-show="loggedInUser">
+      <div class="header">
+        <div class="logo">
+          <i class="fa fa-bars" aria-hidden="true" ng-click="showNav()"></i> FitAssist
+        </div>
+        <div class="logout">
+          <button type="button" class="fit-button-primary" name="button" ng-click="logout()">Logout</button>
+        </div>
+        <div class="user">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <span class="nav-user">{{loggedInUser.name.first_name}} {{loggedInUser.name.last_name}}</span>
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+    <div class="horizontal-nav" ng-show="loggedInUser && showNavBool">
+      <div class="header">
+        <div class="logo">
+          <i class="fa fa-bars" aria-hidden="true" ng-click="showNav()"></i> FitAssist
+        </div>
+      </div>
+      <div class="nav-links" ng-init="activeNav = 'home'">
+        <div class="link" ng-click="activeNav = 'home'" ng-class="{'active': activeNav == 'home'}"><i class="fa fa-home" aria-hidden="true"></i>Home</div>
+        <div class="link" ng-click="activeNav = 'history'" ng-class="{'active': activeNav == 'history'}"><i class="fa fa-history" aria-hidden="true"></i>History</div>
+        <div class="link" ng-click="activeNav = 'coach'" ng-class="{'active': activeNav == 'coach'}"><i class="fa fa-users" aria-hidden="true"></i>Find A Coach</div>
+        <div class="link" ng-click="activeNav = 'analysis'" ng-class="{'active': activeNav == 'analysis'}"><i class="fa fa-area-chart" aria-hidden="true"></i>Analysis</div>
+      </div>
+    </div>
 
     <div ui-view></div>
 
@@ -43,6 +72,8 @@
     <!-- endbuild -->
 
     <!-- external dependencies -->
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
     <script src="assets/scripts/ga.js"></script>
   </body>
 </html>
