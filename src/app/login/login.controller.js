@@ -19,14 +19,13 @@
 
     function loginUser(){
       $log.info("CALLED");
-      fitAppService.login.loginUser().then(function(res){
+      fitAppService.login.loginUser(vm.username, vm.password).then(function(res){
         var response = res.data;
         if(response == 'Failed Login'){
           $log.info('Failed Login');
         }
-        else if (response.name){
+        else if (response.username){
           $rootScope.loggedInUser = response;
-          $log.info('User: ' + angular.toJson(response));
           $state.go('home');
         }
         $rootScope.showNavBool = false;

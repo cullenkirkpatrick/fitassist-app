@@ -1,1 +1,23 @@
+<div ng-if="loggedInUser.user_type == 'Individual' || loggedInUser.user_type == 'Individual Nutrition'" class="user-landing-page">
+  <div class="calendar-header">
+    Workout Schedule
+  </div>
+  <div class="calendar">
+    <div class="col-md-12 view-picker">
+      <div class="btn-group">
+        <label class="btn btn-primary" ng-model="vm.calView" uib-btn-radio="'year'">Year</label>
+        <label class="btn btn-primary" ng-model="vm.calView" uib-btn-radio="'month'">Month</label>
+        <label class="btn btn-primary" ng-model="vm.calView" uib-btn-radio="'week'">Week</label>
+        <label class="btn btn-primary" ng-model="vm.calView" uib-btn-radio="'day'">Day</label>
+      </div>
+    </div>
+    <mwl-calendar
+      view="vm.calView"
+      view-date="vm.viewDate"
+      events="vm.events"
+      view-title="vm.calTitle">
+    </mwl-calendar>
+  </div>
 
+  <button type="button" name="button" ng-click="vm.cancelSubscripton()">DELETE SUBSCRIPTION</button>
+</div>

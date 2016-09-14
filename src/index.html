@@ -34,7 +34,7 @@
         </div>
         <div class="user">
           <i class="fa fa-user" aria-hidden="true"></i>
-          <span class="nav-user">{{loggedInUser.name.first_name}} {{loggedInUser.name.last_name}}</span>
+          <span class="nav-user">{{loggedInUser.first_name}} {{loggedInUser.last_name}}</span>
           <i class="fa fa-envelope" aria-hidden="true"></i>
         </div>
       </div>
@@ -45,11 +45,33 @@
           <i class="fa fa-bars" aria-hidden="true" ng-click="showNav()"></i> FitAssist
         </div>
       </div>
-      <div class="nav-links" ng-init="activeNav = 'home'">
-        <div class="link" ng-click="activeNav = 'home'" ng-class="{'active': activeNav == 'home'}"><i class="fa fa-home" aria-hidden="true"></i>Home</div>
+      <div class="nav-links" ng-if="loggedInUser.user_type == 'Individual'">
+        <div class="link" ng-click="activeNav = 'home'" ng-class="{'active': activeNav == 'home' || !activeNav}"><i class="fa fa-home" aria-hidden="true"></i>Home</div>
         <div class="link" ng-click="activeNav = 'history'" ng-class="{'active': activeNav == 'history'}"><i class="fa fa-history" aria-hidden="true"></i>History</div>
-        <div class="link" ng-click="activeNav = 'coach'" ng-class="{'active': activeNav == 'coach'}"><i class="fa fa-users" aria-hidden="true"></i>Find A Coach</div>
         <div class="link" ng-click="activeNav = 'analysis'" ng-class="{'active': activeNav == 'analysis'}"><i class="fa fa-area-chart" aria-hidden="true"></i>Analysis</div>
+      </div>
+      <div class="nav-links" ng-if="loggedInUser.user_type == 'Individual Nutrition'">
+        <div class="link" ng-click="activeNav = 'home'" ng-class="{'active': activeNav == 'home' || !activeNav}"><i class="fa fa-home" aria-hidden="true"></i>Home</div>
+        <div class="link" ng-click="activeNav = 'history'" ng-class="{'active': activeNav == 'history'}"><i class="fa fa-history" aria-hidden="true"></i>History</div>
+        <div class="link" ng-click="activeNav = 'nutrition'" ng-class="{'active': activeNav == 'nutrition'}"><i class="fa fa-cutlery" aria-hidden="true"></i>Nutrition</div>
+        <div class="link" ng-click="activeNav = 'analysis'" ng-class="{'active': activeNav == 'analysis'}"><i class="fa fa-area-chart" aria-hidden="true"></i>Analysis</div>
+      </div>
+      <div class="nav-links" ng-if="loggedInUser.user_type == 'Admin'">
+        <div class="link" ng-click="activeNav = 'adminhome'" ng-class="{'active': activeNav == 'adminhome' || !activeNav}"><i class="fa fa-home" aria-hidden="true"></i>Home</div>
+        <div class="link" ng-click="activeNav = 'adminapp'" ng-class="{'active': activeNav == 'adminapp'}"><i class="fa fa-desktop" aria-hidden="true"></i>Application</div>
+        <div class="link" ng-click="activeNav = 'adminusers'" ng-class="{'active': activeNav == 'adminusers'}"><i class="fa fa-users" aria-hidden="true"></i>Users</div>
+        <div class="link" ng-click="activeNav = 'adminplans'" ng-class="{'active': activeNav == 'adminplans'}"><i class="fa fa-credit-card" aria-hidden="true"></i>Plans</div>
+      </div>
+      <div class="user-profile">
+        <div class="user-image">
+          <img src="/assets/images/user.png" alt="" />
+        </div>
+        <div class="user-name">
+          {{loggedInUser.first_name}} {{loggedInUser.last_name}}
+        </div>
+        <div class="edit-profile">
+          Edit
+        </div>
       </div>
     </div>
 

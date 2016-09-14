@@ -9,13 +9,13 @@
 
       var login = {
 
-        loginUser: function(){
+        loginUser: function(username, password){
           return $http({
             method: 'POST',
             url: 'http://localhost:3001/login',
             params: {
-              username: "TestCoach",
-              password: "TestCoach"
+              username: username,
+              password: password
             }
           })
         }
@@ -26,7 +26,7 @@
         getAllUsers: function(){
           return $http({
             method: 'GET',
-            url: 'http://localhost:3001/getusers'
+            url: 'http://localhost:3001/users'
           })
         }
       };
