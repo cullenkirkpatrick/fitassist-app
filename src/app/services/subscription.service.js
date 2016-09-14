@@ -29,35 +29,23 @@
           })
         },
 
-        basicCoach: function(token){
+        cancelSubscripton: function(){
           return $http({
             method: 'POST',
-            url: 'http://localhost:3001/new_basic_coach',
-            data: {
-              token: token
-            }
+            url: 'http://localhost:3001/cancel_subscription'
           })
         },
 
-        proCoach: function(token){
+        updateSubscripton: function(sub_id){
           return $http({
             method: 'POST',
-            url: 'http://localhost:3001/new_pro_coach',
+            url: 'http://localhost:3001/update_subscripton',
             data: {
-              token: token
-            }
-          })
-        },
-
-        eliteCoach: function(token){
-          return $http({
-            method: 'POST',
-            url: 'http://localhost:3001/new_elite_coach',
-            data: {
-              token: token
+              sub_id: sub_id
             }
           })
         }
+
       };
 
       return {
