@@ -50,7 +50,7 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe(jsFilter.restore)
     .pipe(cssFilter)
     .pipe($.sourcemaps.init())
-    .pipe($.replace('../../bower_components/bootstrap-sass/assets/fonts/bootstrap/', '../fonts/'))
+    .pipe($.replace('../../bower_components/bootstrap/fonts/', '/fonts/bootstrap/'))
     .pipe($.minifyCss({ processImport: false }))
     .pipe($.rev())
     .pipe($.sourcemaps.write('maps'))
@@ -78,6 +78,11 @@ gulp.task('fonts', function () {
     .pipe(gulp.dest(path.join(conf.paths.dist, '/fonts/')));
 });
 
+gulp.task('fonts2', function () {
+  return gulp.src(conf.paths.bower_components + '/bootstrap/fonts/*')
+    .pipe(gulp.dest(path.join(conf.paths.dist, '/fonts/bootstrap/')));
+});
+
 // Only applies for google analytics
 gulp.task('ga', function () {
   return gulp.src(conf.paths.src + '/assets/scripts/ga.js')
@@ -101,4 +106,4 @@ gulp.task('clean', function () {
   return $.del([path.join(conf.paths.dist, '/'), path.join(conf.paths.tmp, '/')]);
 });
 
-gulp.task('build', ['html', 'fonts', 'ga', 'other']);
+gulp.task('build', ['html', 'fonts', 'fonts2', 'ga', 'other']);

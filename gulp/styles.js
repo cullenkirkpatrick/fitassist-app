@@ -16,8 +16,13 @@ gulp.task('styles-reload', ['styles'], function() {
     .pipe(browserSync.stream());
 });
 
-gulp.task('styles', function() {
+gulp.task('styles', ['fonts3'], function() {
   return buildStyles();
+});
+
+gulp.task('fonts3', function () {
+  return gulp.src(conf.paths.bower_components + '/bootstrap/fonts/*')
+    .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/app/fonts/bootstrap/')));
 });
 
 var buildStyles = function() {

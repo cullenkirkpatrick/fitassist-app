@@ -2,22 +2,54 @@
   <div class="calendar-header">
     Workout Schedule
   </div>
-  <div class="calendar">
-    <div class="col-md-12 view-picker">
-      <div class="btn-group">
-        <label class="btn btn-primary" ng-model="vm.calView" uib-btn-radio="'year'">Year</label>
-        <label class="btn btn-primary" ng-model="vm.calView" uib-btn-radio="'month'">Month</label>
-        <label class="btn btn-primary" ng-model="vm.calView" uib-btn-radio="'week'">Week</label>
-        <label class="btn btn-primary" ng-model="vm.calView" uib-btn-radio="'day'">Day</label>
+  <div class="col-md-12 glances">
+    <div class="col-md-4 glance">
+      <div class="yesterday">
+        <div class="header">Yesterday
+          <span class="view">
+            <i class="fa fa-heartbeat selected" aria-hidden="true"></i>
+            <i class="fa fa-cutlery" aria-hidden="true"></i>
+          </span>
+        </div>
       </div>
     </div>
+    <div class="col-md-4 glance">
+      <div class="today">
+        <div class="header">Today
+          <span class="view">
+            <i class="fa fa-heartbeat selected" aria-hidden="true"></i>
+            <i class="fa fa-cutlery" aria-hidden="true"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 glance">
+      <div class="tomorrow">
+        <div class="header">Tomorrow
+          <span class="view">
+            <i class="fa fa-heartbeat selected" aria-hidden="true"></i>
+            <i class="fa fa-cutlery" aria-hidden="true"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="calendar-header">
+    Calendar
+  </div>
+  <div class="calendar" ng-hide="!vm.eventsLoaded">
     <mwl-calendar
       view="vm.calView"
       view-date="vm.viewDate"
       events="vm.events"
-      view-title="vm.calTitle">
+      view-title="vm.calTitle"
+      on-event-click="vm.eventClicked(calendarEvent)">
     </mwl-calendar>
   </div>
 
-  <button type="button" name="button" ng-click="vm.cancelSubscripton()">DELETE SUBSCRIPTION</button>
+  <!-- <button type="button" name="button" ng-click="vm.cancelSubscripton()">DELETE SUBSCRIPTION</button> -->
+</div>
+<div class="loading-spinner" ng-show="!vm.eventsLoaded">
+  <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i></br>
+  <span>Loading...</span>
 </div>

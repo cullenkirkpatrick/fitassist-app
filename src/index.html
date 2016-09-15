@@ -46,21 +46,21 @@
         </div>
       </div>
       <div class="nav-links" ng-if="loggedInUser.user_type == 'Individual'">
-        <div class="link" ng-click="activeNav = 'home'" ng-class="{'active': activeNav == 'home' || !activeNav}"><i class="fa fa-home" aria-hidden="true"></i>Home</div>
-        <div class="link" ng-click="activeNav = 'history'" ng-class="{'active': activeNav == 'history'}"><i class="fa fa-history" aria-hidden="true"></i>History</div>
-        <div class="link" ng-click="activeNav = 'analysis'" ng-class="{'active': activeNav == 'analysis'}"><i class="fa fa-area-chart" aria-hidden="true"></i>Analysis</div>
+        <div ui-sref="home" class="link" ng-click="activeNav = 'home'" ng-class="{'active': activeNav == 'home' || !activeNav}"><i class="fa fa-home" aria-hidden="true"></i>Home</div>
+        <div ui-sref="history" class="link" ng-click="activeNav = 'history'" ng-class="{'active': activeNav == 'history'}"><i class="fa fa-history" aria-hidden="true"></i>History</div>
+        <div ui-sref="analysis" class="link" ng-click="activeNav = 'analysis'" ng-class="{'active': activeNav == 'analysis'}"><i class="fa fa-area-chart" aria-hidden="true"></i>Analysis</div>
       </div>
       <div class="nav-links" ng-if="loggedInUser.user_type == 'Individual Nutrition'">
-        <div class="link" ng-click="activeNav = 'home'" ng-class="{'active': activeNav == 'home' || !activeNav}"><i class="fa fa-home" aria-hidden="true"></i>Home</div>
-        <div class="link" ng-click="activeNav = 'history'" ng-class="{'active': activeNav == 'history'}"><i class="fa fa-history" aria-hidden="true"></i>History</div>
-        <div class="link" ng-click="activeNav = 'nutrition'" ng-class="{'active': activeNav == 'nutrition'}"><i class="fa fa-cutlery" aria-hidden="true"></i>Nutrition</div>
-        <div class="link" ng-click="activeNav = 'analysis'" ng-class="{'active': activeNav == 'analysis'}"><i class="fa fa-area-chart" aria-hidden="true"></i>Analysis</div>
+        <div ui-sref="home" class="link" ng-click="activeNav = 'home'" ng-class="{'active': activeNav == 'home' || !activeNav}"><i class="fa fa-home" aria-hidden="true"></i>Home</div>
+        <div ui-sref="history" class="link" ng-click="activeNav = 'history'" ng-class="{'active': activeNav == 'history'}"><i class="fa fa-history" aria-hidden="true"></i>History</div>
+        <div ui-sref="nutrition" class="link" ng-click="activeNav = 'nutrition'" ng-class="{'active': activeNav == 'nutrition'}"><i class="fa fa-cutlery" aria-hidden="true"></i>Nutrition</div>
+        <div ui-sref="analysis" class="link" ng-click="activeNav = 'analysis'" ng-class="{'active': activeNav == 'analysis'}"><i class="fa fa-area-chart" aria-hidden="true"></i>Analysis</div>
       </div>
       <div class="nav-links" ng-if="loggedInUser.user_type == 'Admin'">
-        <div class="link" ng-click="activeNav = 'adminhome'" ng-class="{'active': activeNav == 'adminhome' || !activeNav}"><i class="fa fa-home" aria-hidden="true"></i>Home</div>
-        <div class="link" ng-click="activeNav = 'adminapp'" ng-class="{'active': activeNav == 'adminapp'}"><i class="fa fa-desktop" aria-hidden="true"></i>Application</div>
-        <div class="link" ng-click="activeNav = 'adminusers'" ng-class="{'active': activeNav == 'adminusers'}"><i class="fa fa-users" aria-hidden="true"></i>Users</div>
-        <div class="link" ng-click="activeNav = 'adminplans'" ng-class="{'active': activeNav == 'adminplans'}"><i class="fa fa-credit-card" aria-hidden="true"></i>Plans</div>
+        <div ui-sref="admin-home" class="link" ng-click="activeNav = 'adminhome'" ng-class="{'active': activeNav == 'adminhome' || !activeNav}"><i class="fa fa-home" aria-hidden="true"></i>Home</div>
+        <div ui-sref="admin-application" class="link" ng-click="activeNav = 'adminapp'" ng-class="{'active': activeNav == 'adminapp'}"><i class="fa fa-desktop" aria-hidden="true"></i>Application</div>
+        <div ui-sref="admin-users" class="link" ng-click="activeNav = 'adminusers'" ng-class="{'active': activeNav == 'adminusers'}"><i class="fa fa-users" aria-hidden="true"></i>Users</div>
+        <div ui-sref="admin-plans" class="link" ng-click="activeNav = 'adminplans'" ng-class="{'active': activeNav == 'adminplans'}"><i class="fa fa-credit-card" aria-hidden="true"></i>Plans</div>
       </div>
       <div class="user-profile">
         <div class="user-image">

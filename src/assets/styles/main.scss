@@ -4,11 +4,51 @@
     font-size: 3rem;
     font-weight: bold;
   }
+  .glances {
+    .glance {
+      padding: 10px 20px 20px 20px;
+    }
+    .yesterday, .today, .tomorrow {
+      height: 200px;
+      width: 100%;
+      padding: 5px 10px 5px 10px;
+      .header {
+        font-size: 2rem;
+        font-weight: bold;
+        font-family: 'Permanent Marker';
+        .view {
+          float: right;
+          .selected {
+            color: #ff0000;
+          }
+          i {
+            cursor: pointer;
+          }
+          i:hover {
+            color: #ff0000;
+          }
+        }
+      }
+    }
+    .yesterday:hover, .today:hover, .tomorrow:hover {
+      .header {
+        text-decoration: underline;
+      }
+    }
+    .yesterday {
+      background-color: #f1f1f1;
+    }
+    .today {
+      border: 1px solid #595959;
+      color: #595959;
+    }
+    .tomorrow {
+      background-color: #2d9696;
+      color: #ffffff;
+    }
+  }
   .calendar {
     width: 80%;
     margin-left: 10%;
-    .view-picker{
-      margin-bottom: 20px;
-    }
   }
 }
