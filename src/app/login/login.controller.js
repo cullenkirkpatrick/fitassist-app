@@ -8,6 +8,8 @@
   /** @ngInject */
   function LoginController($log, $http, $state, $rootScope, fitAppService) {
     var vm = this;
+    $rootScope.logout = logout;
+    $rootScope.showNav = showNav;
     vm.loginUser = loginUser;
     vm.getUsers = getUsers;
 
@@ -25,8 +27,13 @@
           $log.info('Failed Login');
         }
         else if (response.username){
+          if(response.user_type == 'Individual' || response.user_type == 'Individual Nutrition'){
+            $state.go('home');
+          }
+          else if(response.user_type == 'Admin'){
+            $state.go('admin-home');
+          }
           $rootScope.loggedInUser = response;
-          $state.go('home');
         }
         $rootScope.showNavBool = false;
       })
@@ -36,6 +43,15 @@
       fitAppService.users.getAllUsers().then(function(res){
         vm.users = res.data;
       });
+    }
+
+    function logout(){
+      $rootScope.loggedInUser = undefined;
+      $state.go('login');
+    }
+
+    function showNav(){
+      $rootScope.showNavBool = !$rootScope.showNavBool;
     }
 
   }
