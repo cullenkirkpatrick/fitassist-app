@@ -1,7 +1,4 @@
 <div ng-if="loggedInUser.user_type == 'Individual' || loggedInUser.user_type == 'Individual Nutrition'" class="user-landing-page">
-  <div class="calendar-header">
-    Workout Schedule
-  </div>
   <div class="col-md-12 glances">
     <div class="col-md-4 glance">
       <div class="yesterday">
@@ -10,6 +7,11 @@
             <i class="fa fa-heartbeat selected" aria-hidden="true"></i>
             <i class="fa fa-cutlery" aria-hidden="true"></i>
           </span>
+        </div>
+        <div class="body">
+          <div ng-repeat="event in vm.workouts | filter:{workout_date: vm.yesterday}">
+            {{event.title}} - {{event.workout_date}} - TODAY: {{vm.yesterday}}
+          </div>
         </div>
       </div>
     </div>
@@ -21,6 +23,11 @@
             <i class="fa fa-cutlery" aria-hidden="true"></i>
           </span>
         </div>
+        <div class="body">
+          <div ng-repeat="event in vm.workouts | filter:{workout_date: vm.today}" ng-click="">
+            {{event.type}} - {{event.workout_date}} - TODAY: {{vm.today}}
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-md-4 glance">
@@ -30,6 +37,11 @@
             <i class="fa fa-heartbeat selected" aria-hidden="true"></i>
             <i class="fa fa-cutlery" aria-hidden="true"></i>
           </span>
+        </div>
+        <div class="body">
+          <div ng-repeat="event in vm.workouts | filter:{workout_date: vm.tomorrow}">
+            {{event.title}} - {{event.startsAt}} - TODAY: {{vm.tomorrow}}
+          </div>
         </div>
       </div>
     </div>
@@ -41,7 +53,7 @@
     <mwl-calendar
       view="vm.calView"
       view-date="vm.viewDate"
-      events="vm.events"
+      events="vm.workouts"
       view-title="vm.calTitle"
       on-event-click="vm.eventClicked(calendarEvent)">
     </mwl-calendar>
